@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+    <ion-buttons end>
+        <button ion-button color="danger" (click)="reset()">
+            Reset
+          </button>
+      <button ion-button icon-only color="danger" (click)="clear()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+      <button ion-button icon-only color="secondary" (click)="save()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="back" padding>
+    <!-- <button ion-button full (click)="captureImage()" *ngIf="!myImage">
+        <ion-icon name="camera"></ion-icon>
+    </button>
+    <button ion-button full (click)="openUrl()">
+        <ion-icon name="arrow-up"></ion-icon>
+    </button> -->
+    <h3 center>Kindly Take the photo in good intensity of light for more accurate result..</h3>
+    <div class="but">
+        <button ion-button icon-only large round color="light" clear class="luck" (click)="takephoto()" *ngIf="!myImage">
+            <ion-icon name="camera"></ion-icon>
+          </button>
+          <button ion-button icon-only large round color="light" clear class="luck" (click)="openUrl()">
+              <ion-icon name="arrow-up"></ion-icon>
+            </button>
+           
+            <!-- <button ion-button round large class="blu" (click)="openUrl()">Book Appointment</button> -->
+
+    </div>
+    
+    <angular-cropper #angularCropper [cropperOptions]="cropperOptions" [imageUrl]="myImage" *ngIf="myImage"></angular-cropper>
+   
+    <ion-row *ngIf="myImage">
+      <ion-col col-4>
+        <button ion-button outline icon-left color="primary" (click)="zoom(true)">
+          <ion-icon name="add"></ion-icon> Zoom
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button outline icon-left color="primary" (click)="zoom(false)">
+          <ion-icon name="remove"></ion-icon> Zoom
+        </button>
+      </ion-col>
+      <ion-col col-4>
+        <button ion-button outline icon-left (click)="rotate()">
+          <ion-icon name="refresh"></ion-icon> 90 deg
+        </button>
+      </ion-col>
+   
+      <ion-col col-2>
+        <button ion-button clear (click)="scaleX()">
+          Flip X
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear (click)="scaleY()">
+          Flip Y
+        </button>
+      </ion-col>
+   
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="move(0, -10)">
+          <ion-icon name="arrow-round-up"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="move(0, 10)">
+          <ion-icon name="arrow-round-down"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="move(-10, 0)">
+          <ion-icon name="arrow-round-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-2>
+        <button ion-button clear icon-only (click)="move(10, 0)">
+          <ion-icon name="arrow-round-forward"></ion-icon>
+        </button>
+      </ion-col>
+    </ion-row>
+   
+    <ion-card *ngIf="croppedImage">
+      <ion-card-header>My Result</ion-card-header>
+      <ion-card-content>
+        <img [src]="croppedImage">
+      </ion-card-content>
+    </ion-card>
+   
+  </ion-content>
+  <ion-nav #content swipeBackEnabled="false"></ion-nav>

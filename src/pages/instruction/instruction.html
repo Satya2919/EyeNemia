@@ -1,0 +1,51 @@
+<!--
+  Generated template for the InstructionPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="danger">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Instruction</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-slides pager (ionSlideDidChange)="slideChanged()" (ionSlideDidChange)="slideChanged()" (ionSlideDrag)="slideMoved()">
+    <ion-slide>
+      <div class="diag" style="background: url('assets/img/whitebg.svg') no-repeat">
+        <ion-icon ios="ios-eye" md="md-eye" color="primary"></ion-icon>
+      </div>
+      <div>
+        <h2>Capture The Image Eye</h2>
+        <p>Click the image of eye in normal lightning condition with distance between 15 to 25cm.</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/img/whitebg.svg') no-repeat">
+        <ion-icon ios="ios-rever se-camera" md="md-reverse-camera" color="primary" class="icon"></ion-icon>
+      </div>
+      <div>
+        <h2>Click And Crop</h2>
+        <p>Use appropriate tools to crop the conjuctiva part of the eye and save it in gallery.</p>
+      </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="diag" style="background: url('assets/img/whitebg.svg') no-repeat">
+        <ion-icon ios="ios-clipboard" md="md-clipboard" color="primary"></ion-icon>
+      </div>
+      <div>
+        <h2>Upload</h2>
+        <p>Select the cropped part from the gallary and upload the image</p>
+        
+      </div>
+    </ion-slide>
+    </ion-slides>
+  <!-- <button ion-button color="primary" (click)="skip()" id="skip">{{ skipMsg }}</button> -->
+</ion-content>
+
