@@ -13,7 +13,7 @@ cloudpickle==0.8.0
 colorama==0.4.1
 cryptography==2.5
 cycler==0.10.0
-dask==1.1.1
+dask==2021.10.0
 decorator==4.3.2
 docutils==0.14
 entrypoints==0.3
